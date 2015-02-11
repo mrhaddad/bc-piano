@@ -53,3 +53,14 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  gem 'bullet'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'fuubar'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+end
