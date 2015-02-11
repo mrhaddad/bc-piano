@@ -1,7 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+schedule = IceCube::Schedule.new
+schedule.add_recurrence_rule IceCube::Rule.weekly.day(:tuesday).until(3.months.from_now)
+schedule.each_occurrence { |t| Masterclass.create(date: t) }
