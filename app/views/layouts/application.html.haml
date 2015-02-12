@@ -23,7 +23,7 @@
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
-              %li.name.navbar-text= current_user.initials
+              %li.navbar-link= link_to current_user.initials, edit_user_registration_path
               %li= link_to fa_icon('sign-out'), destroy_user_session_path, method: :delete
             - else
               %li= link_to fa_icon('sign-in'), new_user_session_path
