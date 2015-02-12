@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require angular
 //= require underscore
+//= require ng-rails-csrf
 //= require restangular
 //= require main
 //= require_tree .

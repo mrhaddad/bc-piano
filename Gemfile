@@ -38,6 +38,7 @@ gem 'devise'
 gem 'foreman'
 gem 'haml-rails'
 gem 'ice_cube'
+gem 'ng-rails-csrf'
 gem 'unicorn-rails'
 gem 'unicorn-worker-killer'
 

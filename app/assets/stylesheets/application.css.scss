@@ -14,5 +14,25 @@
  *= require_self
  */
 
+$maroon1: #882345;
+$maroon2: #AD4C66;
+$gold1: #EBB700;
+$gold2: #EDB72B;
+$warmgray1: #82786F;
+$warmgray2: #87807C;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav.navbar-default {
+  background-color: $maroon1;
+
+  a.navbar-brand {
+    color: white;
+  }
+}
