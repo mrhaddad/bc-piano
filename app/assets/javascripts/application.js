@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require angular
+//= require underscore
+//= require restangular
+//= require main
 //= require_tree .
