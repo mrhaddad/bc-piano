@@ -3,18 +3,20 @@
     .panel-heading {{masterclass.date | date: 'd MMM yyyy'}}
 
     .panel-body
-      %table.table{'ng-if' => 'masterclass.performances.length'}
-        %tr
-          %th Performer
-          %th Composer
-          %th Title
-          %th
-        %tr{'ng-repeat' => 'performance in masterclass.performances'}
-          %td {{performance.performer}}
-          %td {{performance.composer}}
-          %td {{performance.title}}
-          %td
-            %a.glyphicon.glyphicon-remove{href: '', 'ng-click' => 'mc.deletePerformance($index)', 'ng-if' => 'performance.deleteable'}
+      %table.table.table-condensed.table-hover{'ng-if' => 'masterclass.performances.length'}
+        %thead
+          %tr
+            %th Performer
+            %th Composer
+            %th Title
+            %th
+        %tbody
+          %tr{'ng-repeat' => 'performance in masterclass.performances'}
+            %td {{performance.performer}}
+            %td {{performance.composer}}
+            %td {{performance.title}}
+            %td
+              %a.glyphicon.glyphicon-remove{href: '', 'ng-click' => 'mc.deletePerformance($index)', 'ng-if' => 'performance.deleteable'}
 
       %p{'ng-if' => '!masterclass.performances.length'} No performers scheduled
 
