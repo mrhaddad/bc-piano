@@ -6,6 +6,12 @@ class Api::PerformancesController < ApplicationController
     render json: PerformanceSerializer.new(performance).to_json
   end
 
+  def destroy
+    performance = current_user.performances.find(params[:id])
+    performance.destroy
+    head :ok
+  end
+
   private
 
   def performance_params

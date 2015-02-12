@@ -11,5 +11,9 @@
       console.debug response
       $scope.masterclass.performances.push(response) if response.id
       vm.performance = {composer: '', title: ''}
+
+  this.deletePerformance = (id) ->
+    Restangular.all("api/masterclasses/#{$scope.masterclass.id}/performances/#{id}").remove().then (response) ->
+      console.debug response
 ])
 

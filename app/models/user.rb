@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :performances, dependent: :destroy
 
   validates :name, presence: true
+
+  def initials
+    name.split(' ').map(&:first).join(' ')
+  end
 end

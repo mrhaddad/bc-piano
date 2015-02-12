@@ -1,17 +1,26 @@
-%ul{'ng-controller' => 'MasterclassesController as controller'}
-  %li{'ng-repeat' => 'masterclass in controller.masterclasses', 'ng-controller' => 'MasterclassController as mc'}
-    {{masterclass.date}}
+%ul.masterclasses{'ng-controller' => 'MasterclassesController as controller'}
+  %li.panel.panel-default{'ng-repeat' => 'masterclass in controller.masterclasses', 'ng-controller' => 'MasterclassController as mc'}
+    .panel-heading {{masterclass.date}}
 
-    %table.table
-      %tr{'ng-repeat' => 'performance in masterclass.performances'}
-        %td {{performance.performer}}
-        %td {{performance.composer}}
-        %td {{performance.title}}
+    .panel-body
+      %table.table{'ng-if' => 'masterclass.performances.length'}
+        %tr
+          %th Performer
+          %th Composer
+          %th Title
+          %th
+        %tr{'ng-repeat' => 'performance in masterclass.performances'}
+          %td {{performance.performer}}
+          %td {{performance.composer}}
+          %td {{performance.title}}
+          %td
+            %a.glyphicon.glyphicon-remove{href: '', 'ng-click' => 'mc.deletePerformance(performance.id)', 'ng-if' => 'performance.deleteable'}
 
-    %form.form-inline
-      .form-group
-        %input.form-control{type: 'text', 'ng-model' => 'mc.performance.composer', placeholder: 'Composer'}
-      .form-group
-        %input.form-control{type: 'text', 'ng-model' => 'mc.performance.title', placeholder: 'Title'}
-      %button.btn.btn-primary{'ng-click' => 'mc.signUp(masterclass.id)'} Sign up
+    .panel-footer
+      %form.form-inline
+        .form-group
+          %input.form-control{type: 'text', 'ng-model' => 'mc.performance.composer', placeholder: 'Composer'}
+        .form-group
+          %input.form-control{type: 'text', 'ng-model' => 'mc.performance.title', placeholder: 'Title'}
+        %button.btn.btn-primary{'ng-click' => 'mc.signUp(masterclass.id)'} Sign up
 
