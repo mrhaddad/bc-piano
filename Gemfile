@@ -19,7 +19,7 @@ gem 'jquery-rails'
 
 gem 'active_model_serializers', '~> 0.8.1'
 gem 'american_date'
-gem 'angularjs-rails', '~> 1.3.10'
+gem 'angularjs-rails', '1.3.10'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'font-awesome-rails'
@@ -52,4 +52,8 @@ group :test do
   gem 'fuubar'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
