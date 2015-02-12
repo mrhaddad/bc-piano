@@ -19,7 +19,7 @@ gem 'jquery-rails'
 
 gem 'active_model_serializers', '~> 0.8.1'
 gem 'american_date'
-gem 'angularjs-rails'
+gem 'angularjs-rails', '~> 1.3.10'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'font-awesome-rails'
@@ -43,6 +43,7 @@ end
 
 group :development do
   gem 'bullet'
+  gem 'heroku_san'
 end
 
 group :test do

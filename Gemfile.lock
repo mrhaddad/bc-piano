@@ -80,6 +80,7 @@ GEM
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
     erubis (2.7.0)
+    excon (0.42.1)
     execjs (2.3.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -106,6 +107,13 @@ GEM
       haml (>= 3.1, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    heroku-api (0.3.21)
+      excon (~> 0.38)
+      multi_json (~> 1.8)
+    heroku_san (4.3.2)
+      heroku-api (>= 0.1.2)
+      json
+      rake
     hike (1.2.3)
     hpricot (0.8.6)
     html2haml (1.0.1)
@@ -242,7 +250,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.8.1)
   american_date
-  angularjs-rails
+  angularjs-rails (~> 1.3.10)
   bootstrap-sass
   bullet
   byebug
@@ -254,6 +262,7 @@ DEPENDENCIES
   foreman
   fuubar
   haml-rails
+  heroku_san
   ice_cube
   jquery-rails
   ng-rails-csrf
