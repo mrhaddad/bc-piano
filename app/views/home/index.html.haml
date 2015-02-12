@@ -1,3 +1,9 @@
-%ul{'ng-controller' => 'MasterclassesController'}
-  %li{'ng-repeat' => 'masterclass in masterclasses'}
+%ul{'ng-controller' => 'MasterclassesController as controller'}
+  %li{'ng-repeat' => 'masterclass in controller.masterclasses'}
     {{masterclass.date}}
+
+    %ul
+      %li{'ng-repeat' => 'performance in masterclass.performances'}
+        %p {{performance.performer}}
+        %p {{performance.composer}}
+        %p {{performance.title}}

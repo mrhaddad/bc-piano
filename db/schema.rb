@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150211152810) do
   enable_extension "plpgsql"
 
   create_table "masterclasses", force: :cascade do |t|
-    t.date     "date"
+    t.date     "date",        null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
