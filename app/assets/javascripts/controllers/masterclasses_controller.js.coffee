@@ -8,12 +8,12 @@
 
   this.signUp = ->
     Restangular.all("api/masterclasses/#{$scope.masterclass.id}/performances").post(vm.performance).then (response) ->
-      console.debug response
       $scope.masterclass.performances.push(response) if response.id
       vm.performance = {composer: '', title: ''}
 
-  this.deletePerformance = (id) ->
-    Restangular.all("api/masterclasses/#{$scope.masterclass.id}/performances/#{id}").remove().then (response) ->
-      console.debug response
+  this.deletePerformance = (index) ->
+    if window.confirm('Are you sure?')
+      Restangular.all("api/masterclasses/#{$scope.masterclass.id}/performances/#{$scope.masterclass.performances[index].id}").remove().then (response) ->
+        $scope.masterclass.performances.splice(index, 1)
 ])
 

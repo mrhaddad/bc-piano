@@ -1,6 +1,6 @@
 %ul.masterclasses{'ng-controller' => 'MasterclassesController as controller'}
   %li.panel.panel-default{'ng-repeat' => 'masterclass in controller.masterclasses', 'ng-controller' => 'MasterclassController as mc'}
-    .panel-heading {{masterclass.date}}
+    .panel-heading {{masterclass.date | date: 'd MMM yyyy'}}
 
     .panel-body
       %table.table{'ng-if' => 'masterclass.performances.length'}
@@ -14,7 +14,9 @@
           %td {{performance.composer}}
           %td {{performance.title}}
           %td
-            %a.glyphicon.glyphicon-remove{href: '', 'ng-click' => 'mc.deletePerformance(performance.id)', 'ng-if' => 'performance.deleteable'}
+            %a.glyphicon.glyphicon-remove{href: '', 'ng-click' => 'mc.deletePerformance($index)', 'ng-if' => 'performance.deleteable'}
+
+      %p{'ng-if' => '!masterclass.performances.length'} No performers scheduled
 
     .panel-footer
       %form.form-inline

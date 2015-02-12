@@ -3,7 +3,7 @@ class Api::PerformancesController < ApplicationController
 
   def create
     performance = current_user.performances.create(performance_params.merge(masterclass_id: params[:masterclass_id]))
-    render json: PerformanceSerializer.new(performance).to_json
+    render json: PerformanceSerializer.new(performance, scope: current_user).to_json
   end
 
   def destroy
