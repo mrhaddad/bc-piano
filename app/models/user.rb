@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
 
+  strip_attributes only: :name
+
   def initials
     name.split(' ').map(&:first).join(' ')
   end

@@ -10,6 +10,7 @@ class Performance < ActiveRecord::Base
   validates :title, presence: true
 
   acts_as_list scope: :masterclass
+  strip_attributes only: [:composer, :title]
 
   after_create :shuffle_performances!
 end
