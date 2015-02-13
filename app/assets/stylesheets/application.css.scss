@@ -34,6 +34,7 @@ ul {
 
 body {
   font-family: 'Roboto', serif;
+  padding-top: 70px;
 }
 
 nav.navbar-default {
@@ -46,6 +47,10 @@ nav.navbar-default {
   ul.navbar-right {
     .navbar-text, a, a:hover {
       color: white;
+    }
+
+    i.fa {
+      margin-left: 5px;
     }
   }
 }

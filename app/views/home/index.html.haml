@@ -27,11 +27,12 @@
 
       %p{'ng-if' => '!masterclass.performances.length'} No performers scheduled
 
-    .panel-footer
-      %form.form-inline
-        .form-group
-          %input.form-control{type: 'text', 'ng-model' => 'mc.performance.composer', placeholder: 'Composer'}
-        .form-group
-          %input.form-control{type: 'text', 'ng-model' => 'mc.performance.title', placeholder: 'Title'}
-        %button.btn.btn-primary{'ng-click' => 'mc.signUp(masterclass.id)', 'ng-disabled' => 'mc.performanceInvalid()'} Sign up
+    - if user_signed_in?
+      .panel-footer
+        %form.form-inline
+          .form-group
+            %input.form-control{type: 'text', 'ng-model' => 'mc.performance.composer', placeholder: 'Composer'}
+          .form-group
+            %input.form-control{type: 'text', 'ng-model' => 'mc.performance.title', placeholder: 'Title'}
+          %button.btn.btn-primary{'ng-click' => 'mc.signUp(masterclass.id)', 'ng-disabled' => 'mc.performanceInvalid()'} Sign up
 
