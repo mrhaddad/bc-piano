@@ -34,7 +34,7 @@ ul {
 
 body {
   font-family: 'Roboto', serif;
-  padding-top: 70px;
+  padding: 70px 0;
 }
 
 nav.navbar-default {
@@ -59,4 +59,8 @@ ul.masterclasses {
   > li {
     margin-bottom: 2em;
   }
+}
+
+form.new_user, form.edit_user {
+  margin-bottom: 1em;
 }
