@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'acts_as_list'
 gem 'active_model_serializers', '~> 0.8.1'
 gem 'american_date'
 gem 'angularjs-rails', '1.3.10'

@@ -6,4 +6,10 @@ class Performance < ActiveRecord::Base
   validates :masterclass, presence: true
   validates :composer, presence: true
   validates :title, presence: true
+
+  acts_as_list scope: :masterclass
+
+  after_create :shuffle_performances!
+
+  delegate :shuffle_performances!, to: :masterclass
 end
