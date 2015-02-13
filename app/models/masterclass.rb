@@ -4,6 +4,6 @@ class Masterclass < ActiveRecord::Base
   validates :date, presence: true, uniqueness: true
 
   def shuffle_performances!
-    performances.shuffle.each_with_index { |p, i| p.update_column(:position, i) }
+    performances.shuffle.each_with_index { |p, i| p.set_list_position(i) }
   end
 end
