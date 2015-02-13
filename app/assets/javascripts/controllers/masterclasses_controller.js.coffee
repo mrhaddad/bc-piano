@@ -6,10 +6,17 @@
   vm = this
   vm.performance = {composer: '', title: ''}
 
+  this.performanceInvalid = -> !vm.performance.composer || !vm.performance.title
+
   this.signUp = ->
     Restangular.all("api/masterclasses/#{$scope.masterclass.id}/performances").post(vm.performance).then (response) ->
       $scope.masterclass.performances.push(response) if response.id
       vm.performance = {composer: '', title: ''}
+
+  this.updatePerformance = (index) ->
+    performance = $scope.masterclass.performances[index]
+    Restangular.all("api/masterclasses/#{$scope.masterclass.id}/performances/#{performance.id}").patch(performance).then (response) ->
+      performance.editing = false
 
   this.deletePerformance = (index) ->
     if window.confirm('Are you sure?')

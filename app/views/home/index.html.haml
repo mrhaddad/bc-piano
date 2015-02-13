@@ -13,10 +13,17 @@
         %tbody
           %tr{'ng-repeat' => 'performance in masterclass.performances'}
             %td {{performance.performer}}
-            %td {{performance.composer}}
-            %td {{performance.title}}
             %td
-              %a.glyphicon.glyphicon-remove{href: '', 'ng-click' => 'mc.deletePerformance($index)', 'ng-if' => 'performance.deleteable'}
+              %span{'ng-hide' => 'performance.editing'} {{performance.composer}}
+              %input.form-control{type: 'text', 'ng-model' => 'performance.composer', 'ng-show' => 'performance.editing'}
+            %td
+              %span{'ng-hide' => 'performance.editing'} {{performance.title}}
+              %input.form-control{type: 'text', 'ng-model' => 'performance.title', 'ng-show' => 'performance.editing'}
+            %td
+              %a.glyphicon.glyphicon-edit{href: '', 'ng-click' => 'performance.editing = true', 'ng-if' => 'performance.editable', 'ng-hide' => 'performance.editing'}
+              %a.glyphicon.glyphicon-remove{href: '', 'ng-click' => 'mc.deletePerformance($index)', 'ng-if' => 'performance.deleteable', 'ng-hide' => 'performance.editing'}
+              %button.btn.btn-primary{'ng-show' => 'performance.editing', 'ng-click' => 'mc.updatePerformance($index)', 'ng-disabled' => 'performance.composer.length == 0 || performance.title.length == 0'} Update
+              %a{href: '', 'ng-show' => 'performance.editing', 'ng-click' => 'performance.editing = false'} Cancel
 
       %p{'ng-if' => '!masterclass.performances.length'} No performers scheduled
 
@@ -26,5 +33,5 @@
           %input.form-control{type: 'text', 'ng-model' => 'mc.performance.composer', placeholder: 'Composer'}
         .form-group
           %input.form-control{type: 'text', 'ng-model' => 'mc.performance.title', placeholder: 'Title'}
-        %button.btn.btn-primary{'ng-click' => 'mc.signUp(masterclass.id)'} Sign up
+        %button.btn.btn-primary{'ng-click' => 'mc.signUp(masterclass.id)', 'ng-disabled' => 'mc.performanceInvalid()'} Sign up
 

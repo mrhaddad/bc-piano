@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :masterclasses, only: [:index] do
-      resources :performances, only: [:create, :destroy]
+      resources :performances, only: [:create, :update, :destroy]
     end
   end
 end
