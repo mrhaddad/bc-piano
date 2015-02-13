@@ -4,6 +4,7 @@ RSpec.describe Performance, :type => :model do
   describe 'associations' do
     it { should belong_to :user }
     it { should belong_to :masterclass }
+    it { should delegate_method(:shuffle_performances!).to(:masterclass) }
   end
 
   describe 'validations' do

@@ -31,13 +31,17 @@ a:hover {
   text-decoration: none;
 }
 
+h2 {
+  margin-top: 0;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
 }
 
 body {
-  font-family: 'Roboto', serif;
+  font-family: 'Roboto', sans-serif;
   padding: 70px 0;
 }
 
@@ -62,6 +66,14 @@ nav.navbar-default {
 ul.masterclasses {
   > li {
     margin-bottom: 2em;
+
+    &.current {
+      box-shadow: #CCC 4px 4px 8px;
+    }
+
+    .panel-heading {
+      text-transform: uppercase;
+    }
   }
 }
 

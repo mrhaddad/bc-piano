@@ -1,5 +1,10 @@
-@bcpiano.controller('MasterclassesController', ['Restangular', (Restangular) ->
-  this.masterclasses = Restangular.all('api/masterclasses').getList().$object
+@bcpiano.controller('MasterclassesController', ['$timeout', 'Restangular', ($timeout, Restangular) ->
+  controller = this
+  Restangular.all('api/masterclasses').getList().then (response) ->
+    controller.masterclasses = response
+    $timeout ->
+      top = $('li.current').offset().top - 70
+      $('body').animate({scrollTop: top}, 300)
 ])
 
 @bcpiano.controller('MasterclassController', ['$scope', 'Restangular', ($scope, Restangular) ->

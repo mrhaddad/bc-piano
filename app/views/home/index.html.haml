@@ -1,5 +1,5 @@
 %ul.masterclasses{'ng-controller' => 'MasterclassesController as controller'}
-  %li.panel.panel-default{'ng-repeat' => 'masterclass in controller.masterclasses', 'ng-controller' => 'MasterclassController as mc'}
+  %li.panel.panel-default{'ng-repeat' => 'masterclass in controller.masterclasses', 'ng-controller' => 'MasterclassController as mc', 'ng-class' => '{current: masterclass.current}'}
     .panel-heading {{masterclass.date | date: 'd MMM yyyy'}}
 
     .panel-body
@@ -27,12 +27,11 @@
 
       %p{'ng-if' => '!masterclass.performances.length'} No performers scheduled
 
-    - if user_signed_in?
-      .panel-footer
-        %form.form-inline.performance
-          .form-group
-            %input.form-control{type: 'text', 'ng-model' => 'mc.performance.composer', placeholder: 'Composer'}
-          .form-group
-            %input.form-control{type: 'text', 'ng-model' => 'mc.performance.title', placeholder: 'Title'}
-          %button.btn.btn-primary{'ng-click' => 'mc.signUp(masterclass.id)', 'ng-disabled' => 'mc.performanceInvalid()'} Sign up
+    .panel-footer{'ng-if' => 'masterclass.registerable'}
+      %form.form-inline.performance
+        .form-group
+          %input.form-control{type: 'text', 'ng-model' => 'mc.performance.composer', placeholder: 'Composer'}
+        .form-group
+          %input.form-control{type: 'text', 'ng-model' => 'mc.performance.title', placeholder: 'Title'}
+        %button.btn.btn-primary{'ng-click' => 'mc.signUp(masterclass.id)', 'ng-disabled' => 'mc.performanceInvalid()'} Sign up
 
