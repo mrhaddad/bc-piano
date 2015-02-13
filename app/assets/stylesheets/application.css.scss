@@ -81,8 +81,10 @@ table {
       margin-right: 5px;
     }
 
-    button {
-      margin-right: 5px;
+    @media(min-width: 768px) {
+      button {
+        margin-right: 5px;
+      }
     }
   }
 }

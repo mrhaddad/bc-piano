@@ -3,7 +3,7 @@
     .panel-heading {{masterclass.date | date: 'd MMM yyyy'}}
 
     .panel-body
-      %table.table.table-condensed.table-hover{'ng-if' => 'masterclass.performances.length'}
+      %table.table.table-condensed.table-hover.table-responsive{'ng-if' => 'masterclass.performances.length'}
         %thead
           %tr
             %th Performer
