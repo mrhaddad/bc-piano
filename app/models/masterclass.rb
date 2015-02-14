@@ -1,5 +1,5 @@
 class Masterclass < ActiveRecord::Base
-  has_many :performances, -> { order('position') }, dependent: :destroy
+  has_many :performances, -> { order('users.name, composer, title').joins(:user) }, dependent: :destroy
 
   validates :date, presence: true, uniqueness: true
 

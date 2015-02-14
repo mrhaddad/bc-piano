@@ -12,5 +12,5 @@ class Performance < ActiveRecord::Base
   acts_as_list scope: :masterclass
   strip_attributes only: [:composer, :title]
 
-  after_create :shuffle_performances!
+  # after_create :shuffle_performances!
 end

@@ -15,7 +15,7 @@
 
   this.signUp = ->
     Restangular.all("api/masterclasses/#{$scope.masterclass.id}/performances").post(vm.performance).then (response) ->
-      $scope.masterclass.performances = response
+      $scope.masterclass = response
       vm.performance = {composer: '', title: ''}
 
   this.updatePerformance = (index) ->
